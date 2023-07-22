@@ -1,0 +1,29 @@
+{
+  "name": "create-krest",
+  "version": "1.0.0",
+  "description": "CLI tool to create a REST API",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kunal Verma",
+  "main": "index.js",
+  "bin": {
+    "create-krest": "index.mjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunal00000/create-krest.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kunal00000/create-krest/issues"
+  },
+  "homepage": "https://github.com/kunal00000/create-krest#readme",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "esm": "^3.2.25",
+    "inquirer": "^9.2.8"
+  }
+}

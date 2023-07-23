@@ -20,3 +20,6 @@ dist/
 
 # VSCode specific files
 .vscode
+
+# Prettier 
+.prettierignore

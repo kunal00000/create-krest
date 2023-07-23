@@ -11,7 +11,7 @@ let Users = [
 
 const userSignup = (req, res) => {
   const newUser = req.body;
-  userExist = Users.find((user) => user.email === newUser.email);
+  const userExist = Users.find((user) => user.email === newUser.email);
   if (userExist) {
     res.status(400).json({ message: "Email already exists" });
   } else {

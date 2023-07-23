@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   getAllTodos,
-  postTodo,
+  createTodo,
   getTodoByID,
   updateTodoByID,
   deleteTodoByID
@@ -9,7 +9,7 @@ const {
 const authenticate = require("../middlewares/auth.midlewares");
 
 const router = express.Router();
-router.route("/").get(getAllTodos).post(postTodo);
+router.route("/").get(getAllTodos).post(createTodo);
 
 router
   .route("/:todoID")

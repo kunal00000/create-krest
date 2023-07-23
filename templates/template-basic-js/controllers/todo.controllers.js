@@ -12,7 +12,7 @@ const getAllTodos = (req, res) => {
   res.status(200).json({ message: "Success", data: Todo });
 };
 
-const postTodo = (req, res) => {
+const createTodo = (req, res) => {
   const todo = req.body;
   Todo.push({ id: Todo[Todo.length - 1].id + 1, ...todo });
   res.status(201).json({ message: "Todo added successfully", data: todo });
@@ -53,7 +53,7 @@ const deleteTodoByID = (req, res) => {
 
 module.exports = {
   getAllTodos,
-  postTodo,
+  createTodo,
   getTodoByID,
   updateTodoByID,
   deleteTodoByID

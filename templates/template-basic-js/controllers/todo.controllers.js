@@ -1,4 +1,4 @@
-// temporary data
+// Temporary data
 let Todo = [
   {
     id: 1,
@@ -7,13 +7,14 @@ let Todo = [
   }
 ];
 
+// Controllers
 const getAllTodos = (req, res) => {
   res.status(200).json({ message: "Success", data: Todo });
 };
 
-const createTodo = (req, res) => {
-  const { todo } = req.body;
-  Todo.push(todo);
+const postTodo = (req, res) => {
+  const todo = req.body;
+  Todo.push({ id: Todo[Todo.length - 1].id + 1, ...todo });
   res.status(201).json({ message: "Todo added successfully", data: todo });
 };
 
@@ -29,10 +30,10 @@ const getTodoByID = (req, res) => {
 
 const updateTodoByID = (req, res) => {
   const { todoID } = req.params;
-  const { todo } = req.body;
+  const todo = req.body;
   const todoIndex = Todo.findIndex((todo) => todo.id === Number(todoID)); // todoIndex is -1 if not found
   if (todoIndex !== -1) {
-    Todo[todoIndex] = todo;
+    Todo[todoIndex] = { id: Number(todoID), ...todo };
     res.status(200).json({ message: "Todo updated successfully", data: todo });
   } else {
     res.status(404).json({ message: "Todo not found" });
@@ -52,7 +53,7 @@ const deleteTodoByID = (req, res) => {
 
 module.exports = {
   getAllTodos,
-  createTodo,
+  postTodo,
   getTodoByID,
   updateTodoByID,
   deleteTodoByID

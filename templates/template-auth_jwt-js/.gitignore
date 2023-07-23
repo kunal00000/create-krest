@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules
+*-lock.yaml
+
+# build output
+dist/
+
+# Environment variables
+.env
+
+# macOS specific files
+.DS_Store
+
+# VSCode specific files
+.vscode

@@ -12,23 +12,19 @@ const currentDir = fileURLToPath(import.meta.url);
 const VARIANTS = [
   {
     name: "basic",
-    display: "Basic CRUD",
-    color: "blue"
+    display: "Basic CRUD"
   },
   {
     name: "auth_jwt",
-    display: "CRUD + JWT Auth",
-    color: "green"
+    display: "CRUD + JWT Auth"
   },
   {
     name: "db_mongo",
-    display: "CRUD + MongoDB Database",
-    color: "red"
+    display: "CRUD + MongoDB Database"
   },
   {
     name: "auth_jwt-db_mongo",
-    display: "CRUD + MongoDB Database + JWT Auth",
-    color: "yellow"
+    display: "CRUD + MongoDB Database + JWT Auth"
   }
 ];
 

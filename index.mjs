@@ -28,6 +28,15 @@ const VARIANTS = [
   }
 ];
 
+const renameFiles = (serverFolder) => {
+  const oldGitignorePath = join(serverFolder, "_gitignore");
+  const newGitignorePath = join(serverFolder, ".gitignore");
+  const oldEnvPath = join(serverFolder, ".env.example");
+  const newEnvPath = join(serverFolder, ".env");
+  fs.renameSync(oldGitignorePath, newGitignorePath);
+  fs.renameSync(oldEnvPath, newEnvPath);
+};
+
 program.action(() => {
   inquirer
     .prompt([
@@ -57,12 +66,12 @@ program.action(() => {
       );
       copyDir(sourceDirectory, serverFolder);
 
+      renameFiles(serverFolder);
+
       console.log(
         `\n Scaffolding project in ${process.cwd()}` + "/server...",
         "\n\n",
-        "Setup environment variables by changing .env.example to .env and add variables",
-        "\n\n",
-        "Done. Now run",
+        "Done. Now setup environment variables and run",
         "\n\n",
         "  cd server",
         "\n",

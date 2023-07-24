@@ -1,7 +1,7 @@
 {
   "name": "create-krest",
-  "version": "1.0.0",
-  "description": "A CLI tool to create a CRUD API",
+  "version": "1.0.1",
+  "description": "A CLI tool to create an API in seconds",
   "type": "module",
   "license": "MIT",
   "author": "Kunal Verma",
@@ -17,12 +17,18 @@
     "type": "git",
     "url": "git+https://github.com/kunal00000/create-krest.git"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "create-krest",
+    "api",
+    "backend",
+    "crud"
+  ],
+  "readme": "README.md",
   "bugs": {
     "url": "https://github.com/kunal00000/create-krest/issues"
   },
   "homepage": "https://github.com/kunal00000/create-krest#readme",
-  "readme": "README.md",
   "dependencies": {
     "commander": "^11.0.0",
     "esm": "^3.2.25",

@@ -22,6 +22,7 @@
     "url": "https://github.com/kunal00000/create-krest/issues"
   },
   "homepage": "https://github.com/kunal00000/create-krest#readme",
+  "readme": "README.md",
   "dependencies": {
     "commander": "^11.0.0",
     "esm": "^3.2.25",

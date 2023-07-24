@@ -1,6 +1,6 @@
 {
   "name": "create-krest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool to create an API in seconds",
   "type": "module",
   "license": "MIT",

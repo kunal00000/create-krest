@@ -28,3 +28,12 @@ export function copyDir(srcDir, destDir) {
     console.error("Error building server:", err.message);
   }
 }
+
+export const renameFiles = (serverFolder) => {
+  const oldGitignorePath = join(serverFolder, "_gitignore");
+  const newGitignorePath = join(serverFolder, ".gitignore");
+  const oldEnvPath = join(serverFolder, ".env.example");
+  const newEnvPath = join(serverFolder, ".env");
+  fs.renameSync(oldGitignorePath, newGitignorePath);
+  fs.renameSync(oldEnvPath, newEnvPath);
+};

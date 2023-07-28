@@ -2,20 +2,12 @@
 
 Create-KREST is a command-line tool that helps you quickly scaffold a simple REST API project. Whether you're starting a new project or prototyping an idea, Create-KREST provides you with the essentials to kickstart your development process.
 
-### Installation
+### Installation & Usage
 
-To use Create-KREST, you need to have Node.js installed. You can install the package globally via npm using the following command:
+To use Create-KREST, you need to have Node.js installed. You can install and run the package via npm using the following command:
 
 ```bash
-$ npm install -g create-krest
-```
-
-### Usage
-
-Once the package is installed, you can run the Create-KREST CLI using the create-simple-api command:
-
-```
-$ create-krest
+$ npm create krest
 ```
 
 **_Alternate way_**
@@ -29,6 +21,10 @@ $ npx create-krest
 ### Questions
 
 During the setup process, Create-KREST will ask you a series of questions to configure your API project:
+
+**Select a language:**
+- Javascript
+- Typescript
 
 **Select a variant to create API:**
 

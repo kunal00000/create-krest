@@ -1,5 +1,6 @@
 import fs from "fs";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
 function copyDirectoryRecursive(sourceDir, destDir) {
   if (!fs.existsSync(destDir)) {
@@ -36,4 +37,16 @@ export const renameFiles = (serverFolder) => {
   const newEnvPath = join(serverFolder, ".env");
   fs.renameSync(oldGitignorePath, newGitignorePath);
   fs.renameSync(oldEnvPath, newEnvPath);
+};
+
+export const getVariantsForLang = (lang, currentDir) => {
+  const files = fs.readdirSync(join(dirname(currentDir), "templates"));
+  const selectedFiles = files.filter((file) => file.split("-")[2] == lang);
+  const extractNames = extractVariants(selectedFiles);
+  return extractNames.sort((a, b) => a.length - b.length);
+};
+
+export const extractVariants = (files) => {
+  // template-<variant>-<language>
+  return files.map((file) => file.split("-")[1]);
 };

@@ -5,9 +5,22 @@ import inquirer from "inquirer";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-import { copyDir } from "./services/index.js";
+import { copyDir, getVariantsForLang, renameFiles } from "./services/index.js";
 
 const currentDir = fileURLToPath(import.meta.url);
+
+const LANGUAGES = [
+  {
+    name: "js",
+    display: "Javascript",
+    variants: getVariantsForLang("js", currentDir)
+  },
+  {
+    name: "ts",
+    display: "Typescript",
+    variants: getVariantsForLang("ts", currentDir)
+  }
+];
 
 const VARIANTS = [
   {
@@ -23,32 +36,35 @@ const VARIANTS = [
     display: "CRUD + MongoDB Database"
   },
   {
-    name: "auth_jwt-db_mongo",
+    name: "auth_jwt_db_mongo",
     display: "CRUD + MongoDB Database + JWT Auth"
   }
 ];
-
-const renameFiles = (serverFolder) => {
-  const oldGitignorePath = join(serverFolder, "_gitignore");
-  const newGitignorePath = join(serverFolder, ".gitignore");
-  const oldEnvPath = join(serverFolder, ".env.example");
-  const newEnvPath = join(serverFolder, ".env");
-  fs.renameSync(oldGitignorePath, newGitignorePath);
-  fs.renameSync(oldEnvPath, newEnvPath);
-};
 
 program.action(() => {
   inquirer
     .prompt([
       {
         type: "list",
+        name: "language",
+        message: "Select a language:",
+        choices: () => LANGUAGES.map((l) => l.display)
+      },
+      {
+        type: "list",
         name: "variant",
         message: "Select a variant to create API:",
-        choices: VARIANTS.map((v) => v.display)
+        choices: (answers) => {
+          const { language } = answers;
+          const langSelected = LANGUAGES.find((l) => l.display == language);
+          return langSelected.variants.map(
+            (lv_name) => VARIANTS.find((v) => v.name == lv_name).display
+          );
+        }
       }
     ])
     .then((answers) => {
-      const { variant } = answers;
+      const { variant, language } = answers;
 
       const serverFolder = join(process.cwd(), "server");
       if (fs.existsSync(serverFolder)) {
@@ -56,8 +72,10 @@ program.action(() => {
       }
       fs.mkdirSync(serverFolder);
 
+      const langSelected = LANGUAGES.find((l) => l.display == language);
       const variantSelected = VARIANTS.find((v) => v.display == variant);
-      const sourceString = "template-" + variantSelected.name + "-js";
+      const sourceString =
+        "template-" + variantSelected.name + "-" + langSelected.name;
 
       const sourceDirectory = join(
         dirname(currentDir),

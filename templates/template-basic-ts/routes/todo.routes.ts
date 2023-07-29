@@ -1,10 +1,11 @@
 import express from "express";
+
 import {
-  getAllTodos,
   createTodo,
+  deleteTodoByID,
+  getAllTodos,
   getTodoByID,
-  updateTodoByID,
-  deleteTodoByID
+  updateTodoByID
 } from "../controllers/todo.controllers";
 
 const router = express.Router();

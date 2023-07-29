@@ -15,7 +15,7 @@ const userSignup = (req, res) => {
   if (userExist) {
     res.status(400).json({ message: "Email already exists" });
   } else {
-    Users.push(newUser);
+    Users.push({ id: Users[Users.length - 1].id + 1, ...newUser });
     const token = jwt.sign({ email: newUser.email }, SECRET, {
       expiresIn: "1h" // token expires in 1 hour
     });

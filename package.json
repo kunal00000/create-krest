@@ -10,7 +10,7 @@
     "create-krest": "index.mjs"
   },
   "scripts": {
-    "format": "prettier --write \"./**/*.{js,json}\"",
+    "format": "prettier --write \"./**/*.{ts,js,mjs}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

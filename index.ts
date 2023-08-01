@@ -57,8 +57,9 @@ program.action(() => {
         choices: (answers) => {
           const { language } = answers;
           const langSelected = LANGUAGES.find((l) => l.display == language);
-          return langSelected.variants.map(
-            (lv_name) => VARIANTS.find((v) => v.name == lv_name).display
+          return langSelected?.variants.map(
+            (lv_name: string) =>
+              VARIANTS.find((v) => v.name == lv_name)?.display
           );
         }
       }
@@ -75,11 +76,11 @@ program.action(() => {
       const langSelected = LANGUAGES.find((l) => l.display == language);
       const variantSelected = VARIANTS.find((v) => v.display == variant);
       const sourceString =
-        "template-" + variantSelected.name + "-" + langSelected.name;
+        "template-" + variantSelected?.name + "-" + langSelected?.name;
 
       const sourceDirectory = join(
         dirname(currentDir),
-        "templates",
+        "../templates",
         sourceString
       );
       copyDir(sourceDirectory, serverFolder);

@@ -5,14 +5,18 @@
   "type": "module",
   "license": "MIT",
   "author": "Kunal Verma",
-  "main": "index.mjs",
+  "main": "dist/index.js",
   "bin": {
-    "create-krest": "index.mjs"
+    "create-krest": "dist/index.js"
   },
   "scripts": {
+    "build": "tsc",
     "format": "prettier --write \"./**/*.{ts,js,mjs}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kunal00000/create-krest.git"
@@ -30,12 +34,11 @@
   },
   "homepage": "https://github.com/kunal00000/create-krest#readme",
   "dependencies": {
-    "commander": "^11.0.0",
-    "esm": "^3.2.25",
-    "inquirer": "^9.2.8"
+    "commander": "^11.0.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/inquirer": "^9.0.3",
     "prettier": "^3.0.0"
   }
 }

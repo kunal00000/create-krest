@@ -18,7 +18,6 @@ function copyDirectoryRecursive(sourceDir: string, destDir: string) {
 }
 
 export function copyDir(srcDir: string, destDir: string) {
-  console.log(srcDir);
   if (!fs.existsSync(srcDir)) {
     console.error("Source directory doesn't exist.");
     return;

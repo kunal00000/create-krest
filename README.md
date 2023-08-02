@@ -7,7 +7,7 @@ Create-KREST is a command-line tool that helps you quickly scaffold a simple RES
 To use Create-KREST, you need to have Node.js installed. You can install and run the package via npm using the following command:
 
 ```bash
-$ npm create krest
+$ npm create krest@latest
 ```
 
 **_Alternate way_**
@@ -15,7 +15,7 @@ $ npm create krest
 - To direclty install and use Create-KREST run
 
 ```
-$ npx create-krest
+$ npx create-krest@latest
 ```
 
 ### Questions

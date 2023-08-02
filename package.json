@@ -34,7 +34,8 @@
   },
   "homepage": "https://github.com/kunal00000/create-krest#readme",
   "dependencies": {
-    "commander": "^11.0.0"
+    "commander": "^11.0.0",
+    "inquirer": "^9.2.9"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",

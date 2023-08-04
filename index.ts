@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import chalk from "chalk";
 import { program } from "commander";
 import fs from "fs";
 import inquirer from "inquirer";
@@ -12,12 +13,12 @@ const currentDir = fileURLToPath(import.meta.url);
 const LANGUAGES = [
   {
     name: "js",
-    display: "Javascript",
+    display: chalk.yellowBright("Javascript"),
     variants: getVariantsForLang("js", currentDir)
   },
   {
     name: "ts",
-    display: "Typescript",
+    display: chalk.blueBright("Typescript"),
     variants: getVariantsForLang("ts", currentDir)
   }
 ];
@@ -25,19 +26,24 @@ const LANGUAGES = [
 const VARIANTS = [
   {
     name: "basic",
-    display: "Basic CRUD"
+    display: chalk.blue("CRUD")
   },
   {
     name: "auth_jwt",
-    display: "CRUD + JWT Auth"
+    display: chalk.blue("CRUD") + " + " + chalk.yellow("JWT Auth")
   },
   {
     name: "db_mongo",
-    display: "CRUD + MongoDB Database"
+    display: chalk.blue("CRUD") + " + " + chalk.green("MongoDB Database")
   },
   {
     name: "auth_jwt_db_mongo",
-    display: "CRUD + MongoDB Database + JWT Auth"
+    display:
+      chalk.blue("CRUD") +
+      " + " +
+      chalk.yellow("JWT Auth") +
+      " + " +
+      chalk.green("MongoDB Database")
   }
 ];
 
@@ -88,15 +94,19 @@ program.action(() => {
       renameFiles(serverFolder);
 
       console.log(
-        `\n Scaffolding project in ${process.cwd()}` + "/server...",
+        chalk.blueBright("\n >>> ") +
+          `Scaffolding project in ${process.cwd()}` +
+          "/server...",
         "\n\n",
-        "Done. Now setup environment variables and run",
+        chalk.blueBright(">>> ") +
+          "Done. " +
+          chalk.magentaBright("Now setup environment variables and run:"),
         "\n\n",
-        "  cd server",
+        chalk.blueBright(">>> ") + "  " + chalk.yellow("cd server"),
         "\n",
-        "  npm install",
+        "      " + chalk.yellow("npm install"),
         "\n",
-        "  npm run dev\n"
+        "      " + chalk.yellow("npm run dev\n")
       );
     })
     .catch((error) => {

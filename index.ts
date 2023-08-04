@@ -94,19 +94,19 @@ program.action(() => {
       renameFiles(serverFolder);
 
       console.log(
-        chalk.blueBright("\n >>> ") +
+        chalk.blueBright("\n ") +
           `Scaffolding project in ${process.cwd()}` +
           "/server...",
         "\n\n",
-        chalk.blueBright(">>> ") +
+        chalk.blueBright(">> ") +
           "Done. " +
           chalk.magentaBright("Now setup environment variables and run:"),
         "\n\n",
-        chalk.blueBright(">>> ") + "  " + chalk.yellow("cd server"),
+        chalk.blueBright(">> ") + "" + chalk.yellow("cd server"),
         "\n",
-        "      " + chalk.yellow("npm install"),
+        "   " + chalk.yellow("npm install"),
         "\n",
-        "      " + chalk.yellow("npm run dev\n")
+        "   " + chalk.yellow("npm run dev\n")
       );
     })
     .catch((error) => {

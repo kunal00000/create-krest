@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create-KREST API</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Create-KREST API</h1>
+
+    <section>
+      <table>
+        <tr>
+          <th>method</th>
+          <th>route</th>
+          <th>information</th>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/</td>
+          <td>Home page for information</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/todos</td>
+          <td>get all the todos</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/todos</td>
+          <td>create a new todo</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/todos/:todoID</td>
+          <td>get a todo by todoID</td>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td>/todos/:todoID</td>
+          <td>update a todo by todoID</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/todos/:todoID</td>
+          <td>delete a todo by todoID</td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>

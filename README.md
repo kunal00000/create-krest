@@ -18,6 +18,10 @@ $ npm create krest@latest
 $ npx create-krest@latest
 ```
 
+### Quick tutorial
+
+https://github.com/kunal00000/create-krest/assets/92316166/2b3319c0-bdec-4115-afc3-bbb7d463b003
+
 ### Questions
 
 During the setup process, Create-KREST will ask you a series of questions to configure your API project:
